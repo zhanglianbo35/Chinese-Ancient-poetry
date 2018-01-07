@@ -1,3 +1,10 @@
+#!/bin/bash
+for i in {1..7243}
+do
+curl http://so.gushiwen.org/type.aspx?p=$i > in_$i.txt
+done
+exit 0
+
 grep '</textarea' in_*.txt >all.txt
 cut -d">" -f2 all.txt | sed 's/http.*//' all_1.txt > all_2.txt
 paste -d'~' all_2.txt score.txt | grep '——' > all_3.txt
