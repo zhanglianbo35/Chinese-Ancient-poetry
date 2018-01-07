@@ -1,7 +1,10 @@
 #!/bin/bash
+
+rm -f in_*.txt
+
 for i in {1..7243}
 do
-curl http://so.gushiwen.org/type.aspx?p=$i > in_$i.txt
+ curl http://so.gushiwen.org/type.aspx?p=$i > in_$i.txt
 done
 exit 0
 
