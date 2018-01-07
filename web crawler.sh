@@ -9,6 +9,7 @@ done
 exit 0
 
 grep '</textarea' in_*.txt >all.txt
+grep 'alt="赞"'  in_*.txt | sed 's/.*nbsp;//' | sed 's/<\/span><\/a><\/div>//' > score.txt
 cut -d">" -f2 all.txt | sed 's/http.*//' > all_2.txt
 paste -d'~' all_2.txt score.txt | grep '——' > all_3.txt
 awk -F'——' 'OFS="——"{$NF="";print}' all_3.txt |sed 's/——$//g' > content.txt
