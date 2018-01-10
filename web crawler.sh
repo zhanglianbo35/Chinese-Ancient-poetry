@@ -6,7 +6,7 @@ for i in {1..7243}
 do
  curl http://so.gushiwen.org/type.aspx?p=$i > in_$i.txt
 done
-exit 0
+
 
 grep '</textarea' in_*.txt >all.txt
 grep 'alt="赞"'  in_*.txt | sed 's/.*nbsp;//' | sed 's/<\/span><\/a><\/div>//' > score.txt
